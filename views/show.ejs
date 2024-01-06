@@ -1,0 +1,79 @@
+<% layout('/layouts/boilerplate') -%>
+<style>
+  * {
+    overflow-x: hidden;
+  }
+</style>
+<div class="row">
+  <div class="col-9 mt-5 text-center">
+    <h3><%=post.title%></h3>
+    <img src="<%=post.image%>" alt="img not found" width="80%" />
+    <p class="text-center"><%=post.content%></p>
+    <div class="home-btns d-flex justify-content-evenly">
+      <form action="/posts/<%=post._id%>/edit">
+        <button class="btn btn-primary">Edit</button>
+      </form>
+      <form method="POST" action="/posts/<%=post._id%>?_method=DELETE">
+        <button class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card col-3 mt-5 sidebar">
+    <div class="card-header text-center">ABOUT ME</div>
+    <img
+      class="card-img-top mt-4"
+      src="../images/sidebar.jpg"
+      alt="img not found"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Lorem ipsum dolor sit .</h5>
+      <p class="card-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ad
+        fugiat provident animi vel ab suscipit doloribus.
+      </p>
+      <div class="card-header text-center mt-5">CATEGORIES</div>
+      <div class="row text-center mt-4">
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Life</a>
+        </div>
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Health</a>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Sport</a>
+        </div>
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Cinema</a>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Style</a>
+        </div>
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Tech</a>
+        </div>
+      </div>
+      <div class="card-header text-center mt-3">FOLLOW US</div>
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center fs-5"
+      >
+        <a class="navbar-brand mt-3 ms-3" href="#"
+          ><i class="fa-brands fa-square-facebook"></i
+        ></a>
+        <a class="navbar-brand mt-3 ms-3" href="#"
+          ><i class="fa-brands fa-square-instagram"></i
+        ></a>
+        <a class="navbar-brand mt-3 ms-3" href="#"
+          ><i class="fa-brands fa-square-twitter"></i
+        ></a>
+        <a class="navbar-brand mt-3 ms-3" href="#"
+          ><i class="fa-brands fa-pinterest"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>

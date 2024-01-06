@@ -1,0 +1,98 @@
+<% layout('/layouts/boilerplate') -%>
+<style>
+  * {
+    overflow-x: hidden;
+  }
+</style>
+<div class="row">
+  <div class="div col-9 mt-5">
+    <div class="col-10 offset-1 mt-5">
+      <form method="POST" action="/posts/<%=post._id%>?_method=PUT">
+        <label class="form-label" for="image">Image</label>
+        <input
+          type="text"
+          id="image"
+          name="post[image]"
+          value="<%=post.image%>"
+          class="form-control"
+        />
+        <br />
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="post[title]"
+          value="<%=post.title%>"
+        /><br />
+        <label class="form-label" for="content">Content</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="content"
+          name="post[content]"
+        >
+<%=post.content%></textarea
+        ><br />
+        <button class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="card col-3 mt-5 sidebar">
+    <div class="card-header text-center">ABOUT ME</div>
+    <img
+      class="card-img-top mt-4"
+      src="https://scontent.fdel3-3.fna.fbcdn.net/v/t39.30808-6/293054995_409418574537551_2229455826763176867_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=iCVZIvJ1OAoAX9Z3did&_nc_ht=scontent.fdel3-3.fna&oh=00_AfAuhFhOYVJFyka2EylsyMH2VAm4Yjcj5bkZ2qvMCmSSDQ&oe=659EEE6A"
+      alt="img not found"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Lorem ipsum dolor sit .</h5>
+      <p class="card-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ad
+        fugiat provident animi vel ab suscipit doloribus.
+      </p>
+      <div class="card-header text-center mt-5">CATEGORIES</div>
+      <div class="row text-center mt-4">
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Life</a>
+        </div>
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Health</a>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Sport</a>
+        </div>
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Cinema</a>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Style</a>
+        </div>
+        <div class="col-6">
+          <a class="card-text categories-links" href="#">Tech</a>
+        </div>
+      </div>
+      <div class="card-header text-center mt-3">FOLLOW US</div>
+      <div
+        class="container-fluid d-flex justify-content-center align-items-center fs-5"
+      >
+        <a class="navbar-brand mt-3 ms-3" href="#"
+          ><i class="fa-brands fa-square-facebook"></i
+        ></a>
+        <a class="navbar-brand mt-3 ms-3" href="#"
+          ><i class="fa-brands fa-square-instagram"></i
+        ></a>
+        <a class="navbar-brand mt-3 ms-3" href="#"
+          ><i class="fa-brands fa-square-twitter"></i
+        ></a>
+        <a class="navbar-brand mt-3 ms-3" href="#"
+          ><i class="fa-brands fa-pinterest"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>

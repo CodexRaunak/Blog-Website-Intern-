@@ -1,0 +1,82 @@
+<% layout('/layouts/boilerplate') -%>
+
+<div class="home-main-img card text-bg-dark">
+  <img src="./images/homeImage.jpg" alt="img" class="img-fluid" />
+  <div
+    class="card-img-overlay d-flex justify-content-center align-items-center"
+  >
+    <form action="/posts/new">
+      <button class="btn btn-outline-light card-title fs-2">WRITE</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="my-container col-8">
+
+    <hr />
+    <%for(let i=0;i<4;i++) { %>
+    <a class="card-anchor" href="/posts/<%=allPosts[i]._id%>">
+    <div class="card home-cards">
+      <img
+        class="card-img-top"
+        src="<%=allPosts[i].image%>"
+        alt="img not found"
+      />
+      <div class="card-body">
+        <h3 class="card-title"><%=allPosts[i].title%></h3>
+        <a class="card-text" href="/posts/<%=allPosts[i]._id%>"
+          ><p><%= truncateContent(allPosts[i].content) %></p></a
+        >
+        <!-- <div class="home-btns d-flex justify-content-evenly">
+          <form action="/posts/<%=allPosts[i]._id%>/edit">
+            <button class="btn btn-primary">Edit</button>
+          </form>
+          <form
+            method="POST"
+            action="/posts/<%=allPosts[i]._id%>?_method=DELETE"
+          >
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </div> -->
+      </div>
+    </div>
+    </a>
+    <hr />
+    <%}%>
+  </div>
+  <%- include('./includes/sidebar.ejs') %>
+</div>
+<%if(allPosts.length>4 ) { %>
+<div class="my-container col-12 mt-n1 ">
+  <%for(let i=4;i<allPosts.length;i++) { %>
+  <div class="card home-cards">
+    <img class="card-img-top" src="<%=allPosts[i].image%>" alt="img not found" />
+    <div class="card-body">
+      <h3 class="card-title"><%=allPosts[i].title%></h3>
+      <a class="card-text" href="/posts/<%=allPosts[i]._id%>"
+        ><p><%= truncateContent(allPosts[i].content) %></p></a
+      >
+      <!-- <div class="home-btns d-flex justify-content-evenly">
+        <form action="/posts/<%=allPosts[i]._id%>/edit">
+          <button class="btn btn-primary">Edit</button>
+        </form>
+        <form method="POST" action="/posts/<%=allPosts[i]._id%>?_method=DELETE">
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </div> -->
+    </div>
+  </div>
+  <hr />
+  <%}%>
+</div>
+<%}%>
+
+
+<% function truncateContent(content) { %> 
+  <% const maxLength = 170;  %>
+  <% if (content.length > maxLength) { %>
+    <%= content.slice(0, maxLength) +  '...' %>
+  <% } else { %>
+    <%= content %>
+  <% } %>
+<% } %>
